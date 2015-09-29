@@ -13,7 +13,7 @@ def quadrants(x, y):
     # this one makes quadrants
 
 def simple(x, y):
-    h = x + y
+    h = math.tan(math.pi *x) + math.atan(math.pi *y)
     return h
 
 def sonar_waves(x, y):
@@ -21,7 +21,7 @@ def sonar_waves(x, y):
     return it_might_be
     # this one gives you a double curve facing the same way
 
-def x_shape(x, y):
+def oblong_rectangle(x, y):
     func = [math.sin, math.cos, math.tan]
     h = math.atan(math.pi * math.tan(x -y) * x) - math.tan(math.pi * math.atan(y - x) * y)
     return h
@@ -33,40 +33,44 @@ def corner_curves(x, y):
     # this one returns curves at the four corners
 
 def crazy(x, y):
-    c = math.tan(math.sin(math.pi * x * math.cos(y))) + math.tan(math.sin(math.pi * y * math.cos(x)))
+    c = math.tan(math.pi * math.sin(math.pi * x * math.cos(math.pi * y))) + math.tan(math.sin(math.pi * y * math.cos(x)))
     return c
 
 def shaper(x, y):
-    rr = math.tan((x**3 + y**3)*math.pi)
+    rr = math.tan((x**2 + y**2)*math.pi)
     return rr
     # this one returns shapes that change depending on the exponent
 
-def me(x, y):
+def x_shape(x, y):
     ggh = math.tan(math.atan(x**2 - y**2)*math.pi)
     return ggh
 
-def funky_cold_medina(x, y):
-    fcm = math.tan(math.sin(abs(x) ** 0.5 *math.cos(x ** 10 + math.tan(x**2 - y**2)))) + math.tan(math.pi) * math.sin(abs(y) ** 0.5 * math.cos(math.tan(y**2 - x**2)))
+def edge_waves(x, y):
+    fcm = math.tan(math.pi * math.sin(math.pi * math.e * math.cos(math.pi * x ** 10 + math.tan(x**2 - y**2)))) + math.tan(math.pi) * math.sin(math.e * math.cos(math.tan(y**2 - x**2)))
     return fcm
 
-def b_sym(x, y):
-    b = math.tan((x * y) **2) * math.pi + math.cos((x * y)**2) * math.pi + math.cos((x * y)**2) * math.pi + math.atan((x * y)**2) * math.pi
+def solid_corner_curves(x, y):
+    b = math.tan(((x*math.e) * y) **2) * math.pi + math.cos(((x*math.e) * y)**2) * math.pi + math.cos(((x*math.e) * y)**2) * math.pi + math.atan(((x *math.e) * y)**2) * math.pi
     return b
 
 def multi_lines(x, y):
-    nn = math.tan(math.e * (x**2 + y**8))
+    nn = math.atan(math.pi * math.tan(math.e * (x**3 + y**3)))
     return nn
     # this will make crazy shapes depending on the exponents
 
-def idk(x, y):
-    hhj = math.tan(x * math.e) + math.sin((x + y) * math.e) + math.cos(y * math.e)
+def asymmetrical(x, y):
+    hhj = math.cos(math.pi * math.sin(math.pi * math.sin( math.pi * math.tan(x * math.e) + math.sin(math.pi * math.cos(x + y) * math.e) + math.cos(math. pi * math.atan(y * math.e)))))
     return hhj
+
+def two_lines(x, y):
+    w = math.sin(math.pi * math.sin(math.pi*math.cos(x**3 * y**3)) + math.tan(math.pi*math.atan(x**2 - y**2)))
+    return w
 
 def create_expression():
     """This function takes no arguments and returns an expression that
     generates a number between -1.0 and 1.0, given x and y coordinates."""
 
-    expr = random.choice([multi_lines, corner_curves, idk])
+    expr = random.choice([corner_curves, crazy, two_lines])
     return expr
 
 
